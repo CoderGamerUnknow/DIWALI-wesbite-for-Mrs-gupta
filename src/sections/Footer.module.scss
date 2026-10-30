@@ -1,0 +1,97 @@
+.footer {
+  position: relative;
+  padding: clamp(3.5rem, 8vw, 6rem) 0 2rem;
+  overflow: clip;
+  border-top: 1px solid rgba(244, 201, 93, 0.1);
+  background:
+    radial-gradient(50vw 30vw at 50% 10%, rgba(128, 58, 22, 0.16), transparent 70%),
+    linear-gradient(180deg, #0b0412, #07040f);
+}
+
+.glow {
+  position: absolute;
+  top: -4rem;
+  left: 50%;
+  width: 30rem;
+  height: 12rem;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(244, 201, 93, 0.09), transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.diya {
+  width: 3.1rem;
+  filter: drop-shadow(0 0 20px rgba(255, 154, 58, 0.28));
+}
+
+.hindi {
+  margin-top: 0.6rem;
+  color: var(--gold-bright);
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+  letter-spacing: 0.05em;
+}
+
+.line {
+  max-width: 32rem;
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: clamp(0.88rem, 1.5vw, 0.98rem);
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+.toTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.4rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid rgba(244, 201, 93, 0.18);
+  border-radius: 999px;
+  color: rgba(255, 230, 163, 0.68);
+  font-size: 0.61rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.toTop:hover {
+  color: var(--gold-bright);
+  border-color: rgba(244, 201, 93, 0.45);
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem 1.8rem;
+  padding-top: 2rem;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid rgba(255, 247, 232, 0.07);
+  color: rgba(255, 247, 232, 0.3);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

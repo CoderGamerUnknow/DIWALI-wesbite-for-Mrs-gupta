@@ -1,0 +1,103 @@
+.diya {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.35));
+}
+
+.glow {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 54%;
+  transition: opacity 0.8s ease;
+}
+
+.flameWrap {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: opacity 0.55s ease;
+}
+
+.flame {
+  filter: drop-shadow(0 0 7px rgba(255, 196, 85, 0.95))
+    drop-shadow(0 0 22px rgba(255, 128, 42, 0.55));
+}
+
+.wick {
+  transition: fill 0.5s ease;
+  fill: #4a2711;
+}
+
+.bowl {
+  transition: filter 0.7s ease;
+}
+
+.lit {
+  .glow {
+    opacity: 1;
+    animation: glowBreathe 3.4s ease-in-out infinite;
+  }
+
+  .flameWrap {
+    opacity: 1;
+    animation: flicker 2.6s ease-in-out infinite;
+  }
+
+  .flameCore {
+    animation: coreFlicker 1.8s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+  }
+
+  .wick {
+    fill: #2b1206;
+  }
+
+  .bowl {
+    filter: saturate(1.15) brightness(1.06);
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  22% {
+    transform: scale(1.035, 0.97) rotate(-1.4deg);
+  }
+  46% {
+    transform: scale(0.97, 1.05) rotate(1.2deg);
+  }
+  68% {
+    transform: scale(1.02, 0.99) rotate(-0.6deg);
+  }
+  84% {
+    transform: scale(0.985, 1.02) rotate(0.7deg);
+  }
+}
+
+@keyframes coreFlicker {
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.88);
+    opacity: 0.9;
+  }
+}
+
+@keyframes glowBreathe {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}

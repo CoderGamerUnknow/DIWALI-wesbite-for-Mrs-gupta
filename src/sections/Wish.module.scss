@@ -1,0 +1,244 @@
+.wish {
+  background:
+    radial-gradient(50vw 40vw at 100% 10%, rgba(96, 27, 69, 0.24), transparent 70%),
+    linear-gradient(180deg, #140821 0%, #1a0a26 48%, #12071c 100%);
+}
+
+.rangoli {
+  position: absolute;
+  top: 8%;
+  right: -13%;
+  width: min(42rem, 58vw);
+  color: rgba(244, 201, 93, 0.16);
+  pointer-events: none;
+}
+
+.grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  align-items: start;
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+}
+
+.intro {
+  position: sticky;
+  top: 8rem;
+}
+
+.title {
+  line-height: 1.08;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--faint);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.metaDot {
+  color: var(--gold);
+  font-size: 0.6rem;
+}
+
+.stamp {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: clamp(2.2rem, 5vw, 3.5rem);
+  color: rgba(255, 230, 163, 0.65);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+}
+
+.stampLine {
+  width: 2.8rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.card {
+  position: relative;
+  padding: clamp(1.7rem, 4.5vw, 3.4rem);
+  border: 1px solid rgba(244, 201, 93, 0.24);
+  border-radius: 4px;
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(244, 201, 93, 0.09), transparent 55%),
+    linear-gradient(155deg, rgba(255, 247, 232, 0.075), rgba(255, 247, 232, 0.018));
+  box-shadow:
+    0 40px 90px -50px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 247, 232, 0.08);
+  backdrop-filter: blur(6px);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0.5rem;
+  border: 1px solid rgba(244, 201, 93, 0.1);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.cornerTop,
+.cornerBottom {
+  position: absolute;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-color: rgba(244, 201, 93, 0.62);
+  pointer-events: none;
+}
+
+.cornerTop {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.cornerBottom {
+  right: -1px;
+  bottom: -1px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(244, 201, 93, 0.14);
+}
+
+.cardLabel {
+  color: var(--gold);
+  font-size: 0.63rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.cardDiya {
+  width: 2.9rem;
+  transform: translateY(0.25rem);
+  filter: drop-shadow(0 0 16px rgba(255, 154, 58, 0.3));
+}
+
+.body {
+  position: relative;
+}
+
+.greeting {
+  margin-bottom: 1.15rem;
+  color: var(--gold-bright);
+  font-size: clamp(1.05rem, 2vw, 1.22rem);
+  letter-spacing: 0.01em;
+}
+
+.paragraph {
+  margin-bottom: 1.05rem;
+  color: rgba(255, 247, 232, 0.76);
+  font-size: clamp(0.95rem, 1.5vw, 1.03rem);
+  font-weight: 300;
+  line-height: 1.85;
+  text-wrap: pretty;
+}
+
+.dropCap {
+  float: left;
+  margin: 0.13em 0.14em 0 0;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 3.25em;
+  line-height: 0.74;
+}
+
+.signOff {
+  padding-top: 1.4rem;
+  margin-top: 1.7rem;
+  border-top: 1px solid rgba(244, 201, 93, 0.14);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.signature {
+  margin-top: 0.45rem;
+  color: var(--gold-bright);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.school {
+  margin-top: 0.3rem;
+  color: var(--faint);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.cardGarland {
+  display: block;
+  margin-top: 1.7rem;
+  color: rgba(244, 201, 93, 0.35);
+  font-size: 0.62rem;
+  letter-spacing: 0.6em;
+  text-align: right;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .intro {
+    position: static;
+  }
+
+  .rangoli {
+    top: 2%;
+    right: -28%;
+    width: 32rem;
+    opacity: 0.7;
+  }
+
+  .stamp {
+    margin-top: 1.6rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .cardHead {
+    padding-bottom: 1rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .cardDiya {
+    width: 2.4rem;
+  }
+
+  .paragraph {
+    line-height: 1.75;
+  }
+
+  .dropCap {
+    font-size: 2.85em;
+  }
+}

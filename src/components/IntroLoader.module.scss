@@ -1,0 +1,202 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  clip-path: inset(0% 0% 0% 0%);
+  background:
+    radial-gradient(60vw 60vw at 50% 42%, rgba(128, 57, 26, 0.3), transparent 65%),
+    radial-gradient(70vw 50vw at 15% 100%, rgba(84, 21, 66, 0.4), transparent 70%),
+    linear-gradient(180deg, #0a0512, #12071d 55%, #07040f);
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255, 247, 232, 0.8), transparent),
+    radial-gradient(1px 1px at 28% 68%, rgba(255, 247, 232, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 42% 15%, rgba(255, 226, 160, 0.9), transparent),
+    radial-gradient(1px 1px at 64% 38%, rgba(255, 247, 232, 0.6), transparent),
+    radial-gradient(1.6px 1.6px at 78% 72%, rgba(255, 226, 160, 0.7), transparent),
+    radial-gradient(1px 1px at 88% 24%, rgba(255, 247, 232, 0.65), transparent),
+    radial-gradient(1px 1px at 52% 84%, rgba(255, 247, 232, 0.5), transparent),
+    radial-gradient(1.2px 1.2px at 8% 82%, rgba(255, 226, 160, 0.55), transparent);
+}
+
+.aura {
+  position: absolute;
+  width: min(46rem, 85vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 201, 93, 0.12), transparent 62%);
+  filter: blur(8px);
+  animation: auraPulse 5s ease-in-out infinite;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+
+.kicker {
+  color: var(--gold);
+  font-size: clamp(0.62rem, 1.6vw, 0.76rem);
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+}
+
+.diya {
+  width: clamp(78px, 11vw, 110px);
+  margin: clamp(0.8rem, 2vh, 1.35rem) 0 0.2rem;
+  filter: drop-shadow(0 0 28px rgba(255, 154, 58, 0.36));
+}
+
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0 0.02em;
+  margin-top: clamp(0.2rem, 1vh, 0.6rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 7.4vw, 5.6rem);
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  line-height: 1.02;
+  perspective: 800px;
+}
+
+.word {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.space {
+  display: inline-block;
+  width: 0.32em;
+}
+
+.charMask {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0 0.015em 0.08em;
+}
+
+.char {
+  display: inline-block;
+  background: linear-gradient(105deg, #c58b31, #ffedb5 38%, #f4c95d 60%, #e7a33e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 12px 26px rgba(244, 201, 93, 0.16));
+  transform-origin: 50% 100%;
+}
+
+.hindi {
+  margin-top: clamp(0.65rem, 1.6vh, 1rem);
+  color: var(--gold-bright);
+  font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 24px rgba(244, 201, 93, 0.3);
+}
+
+.note {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: clamp(0.78rem, 1.6vw, 0.9rem);
+  letter-spacing: 0.06em;
+}
+
+.progressWrap {
+  position: absolute;
+  bottom: clamp(2.4rem, 7vh, 4rem);
+  left: 50%;
+  width: min(30rem, 78vw);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+  color: var(--faint);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.counter {
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+.track {
+  height: 2px;
+  background: rgba(255, 247, 232, 0.12);
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: linear-gradient(90deg, #b56d1b, var(--gold-bright), var(--saffron));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  box-shadow: 0 0 14px rgba(244, 201, 93, 0.65);
+}
+
+.skip {
+  position: absolute;
+  right: clamp(1rem, 4vw, 2.5rem);
+  bottom: clamp(1rem, 4vh, 1.8rem);
+  z-index: 3;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(255, 247, 232, 0.14);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.skip:hover {
+  color: var(--gold-bright);
+  border-color: rgba(244, 201, 93, 0.4);
+}
+
+@media (max-width: 560px) {
+  .progressWrap {
+    width: 76vw;
+  }
+
+  .skip {
+    top: 1rem;
+    right: 1rem;
+    bottom: auto;
+  }
+}
+
+@keyframes auraPulse {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}

@@ -1,0 +1,281 @@
+.share {
+  background:
+    radial-gradient(55vw 45vw at 15% 10%, rgba(109, 31, 74, 0.24), transparent 70%),
+    radial-gradient(50vw 40vw at 90% 90%, rgba(132, 71, 20, 0.16), transparent 72%),
+    linear-gradient(180deg, #0a0413 0%, #130821 50%, #0b0412 100%);
+}
+
+.glow {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  width: 34rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 201, 93, 0.1), transparent 65%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: clamp(2.8rem, 6vw, 5rem);
+}
+
+.lead {
+  max-width: 44ch;
+}
+
+.steps {
+  display: grid;
+  gap: 1.15rem;
+  margin-top: clamp(1.9rem, 4vw, 2.6rem);
+}
+
+.steps li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.stepNumber {
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+  color: rgba(244, 201, 93, 0.55);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+
+.steps strong {
+  display: block;
+  color: var(--cream);
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.steps p {
+  margin-top: 0.18rem;
+  color: var(--faint);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  max-width: 34ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: clamp(1.9rem, 4vw, 2.5rem);
+}
+
+.actions :global(.text-link) {
+  margin-left: 0.4rem;
+  font-size: 0.68rem;
+}
+
+.feedback {
+  min-height: 1.4rem;
+  margin-top: 0.9rem;
+  color: var(--gold-bright);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+}
+
+.url {
+  margin-top: 0.4rem;
+  color: var(--faint);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.hint {
+  max-width: 38ch;
+  margin-top: 0.9rem;
+  padding: 0.65rem 0.8rem;
+  border-left: 2px solid rgba(244, 201, 93, 0.5);
+  background: rgba(244, 201, 93, 0.05);
+  color: rgba(255, 230, 163, 0.66);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.cardWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  width: min(100%, 25rem);
+  padding: clamp(1.5rem, 3.5vw, 2.4rem);
+  overflow: hidden;
+  border: 1px solid rgba(244, 201, 93, 0.42);
+  border-radius: 6px;
+  background:
+    radial-gradient(100% 70% at 50% 0%, rgba(244, 201, 93, 0.12), transparent 55%),
+    linear-gradient(165deg, #1d0c26 0%, #2a0c1d 100%);
+  box-shadow:
+    0 40px 90px -45px rgba(0, 0, 0, 0.95),
+    inset 0 0 0 5px rgba(7, 4, 15, 0.35),
+    inset 0 0 0 6px rgba(244, 201, 93, 0.12);
+  text-align: center;
+  transform: rotate(1.2deg);
+  transition: transform 0.6s var(--ease-out), box-shadow 0.6s var(--ease-out);
+}
+
+.card:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow:
+    0 50px 110px -45px rgba(0, 0, 0, 1),
+    inset 0 0 0 5px rgba(7, 4, 15, 0.35),
+    inset 0 0 0 6px rgba(244, 201, 93, 0.2);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0.7rem;
+  border: 1px solid rgba(244, 201, 93, 0.16);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.cardTopDiya {
+  display: block;
+  width: 3.3rem;
+  margin: -0.3rem auto 0.5rem;
+  filter: drop-shadow(0 0 18px rgba(255, 154, 58, 0.35));
+}
+
+.cardKicker {
+  color: rgba(255, 230, 163, 0.62);
+  font-size: 0.56rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  margin-top: 0.65rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+}
+
+.cardTitle em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--gold), var(--gold-bright), #e7a33e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cardHindi {
+  margin-top: 0.4rem;
+  color: rgba(255, 230, 163, 0.72);
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+}
+
+.qrFrame {
+  margin: clamp(1rem, 2.6vw, 1.4rem) auto 0;
+  padding: 0.55rem;
+  border-radius: 7px;
+  background: #fff8ea;
+  box-shadow:
+    0 12px 30px -18px rgba(0, 0, 0, 0.85),
+    inset 0 0 0 1px rgba(23, 10, 18, 0.12);
+}
+
+.scanHint {
+  margin-top: 0.75rem;
+  color: var(--gold-bright);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.cardFor {
+  margin-top: 0.45rem;
+  color: rgba(255, 247, 232, 0.42);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.cardBottomGarland {
+  display: block;
+  margin-top: 0.85rem;
+  color: rgba(244, 201, 93, 0.4);
+  font-size: 0.5rem;
+  letter-spacing: 0.5em;
+}
+
+.cardNote {
+  max-width: 23rem;
+  margin-top: 1rem;
+  color: var(--faint);
+  font-size: 0.67rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+/* Off-screen QR rendered at 1200px so the A4 sheet prints crisp modules. */
+.printQr {
+  position: absolute;
+  top: 0;
+  left: -12000px;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .copy {
+    max-width: 38rem;
+  }
+
+  .cardWrap {
+    order: -1;
+  }
+
+  .card {
+    width: min(100%, 23rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .actions :global(.text-link) {
+    justify-content: center;
+    margin-left: 0;
+    padding: 0.4rem 0;
+  }
+
+  .card {
+    padding: 1.4rem 1.15rem;
+  }
+
+  .qrFrame {
+    padding: 0.4rem;
+  }
+}
