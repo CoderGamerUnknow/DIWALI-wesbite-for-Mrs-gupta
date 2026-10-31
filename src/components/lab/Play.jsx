@@ -264,7 +264,8 @@ export function BlessingWheel() {
     const index = Math.floor(Math.random() * WHEEL.length);
     setSpinning(true);
     setResult(null);
-    setAngle((value) => value + 360 * 5 + (360 - index * 45));
+    // Rotate so the pointer sits on the centre of the winning 45° segment.
+    setAngle((value) => value + 360 * 5 + (360 - (index * 45 + 22.5)));
     timerRef.current = window.setTimeout(() => {
       setSpinning(false);
       setResult(WHEEL[index]);

@@ -121,7 +121,7 @@ export function RangoliGenerator() {
 
   return (
     <div className={styles.feature}>
-      <div className={styles.rangoliStage} style={{ "--seed-color": palette.colors[3] }}>
+      <div className={styles.rangoliStage}>
         <svg viewBox="0 0 240 240" aria-label={`Generated rangoli, seed ${seed}`}>
           <circle cx="120" cy="120" r="112" fill="none" stroke={palette.colors[3]} strokeOpacity="0.2" strokeDasharray="2 8" />
           {[96, 78, 56, 34].map((radius) => (

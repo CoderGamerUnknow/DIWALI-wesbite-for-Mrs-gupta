@@ -583,7 +583,13 @@ export function OddDiya() {
     setBest((value) => Math.max(value, score));
   }, [phase, timeLeft, score, setBest]);
 
-  const newOdd = () => setOdd(Math.floor(Math.random() * ODD_COUNT));
+  const newOdd = (exclude = -1) => {
+    let next = Math.floor(Math.random() * ODD_COUNT);
+    while (ODD_COUNT > 1 && next === exclude) {
+      next = Math.floor(Math.random() * ODD_COUNT);
+    }
+    setOdd(next);
+  };
 
   const start = () => {
     setScore(0);
@@ -598,7 +604,7 @@ export function OddDiya() {
     if (index === odd) {
       setScore((value) => value + 1);
       setMessage("Found it. Here is another.");
-      setOdd(Math.floor(Math.random() * ODD_COUNT));
+      newOdd(index);
       playDiyaChime(score % 5);
     } else {
       setTimeLeft((value) => Math.max(0, value - 2));
