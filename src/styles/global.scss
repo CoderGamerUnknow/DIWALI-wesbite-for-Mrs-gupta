@@ -405,3 +405,13 @@ canvas {
     scroll-behavior: auto !important;
   }
 }
+
+/* The Light Lab's "calm the page" switch. */
+html.calm-mode *,
+html.calm-mode *::before,
+html.calm-mode *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}

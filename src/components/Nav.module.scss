@@ -243,6 +243,10 @@
   transition-delay: 0.25s;
 }
 
+.menuLink:nth-child(6) {
+  transition-delay: 0.3s;
+}
+
 .menuLink:hover,
 .menuLinkActive {
   color: var(--gold-bright);

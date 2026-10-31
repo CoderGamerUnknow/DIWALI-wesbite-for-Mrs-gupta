@@ -11,6 +11,7 @@ import { Diyas } from "./sections/Diyas";
 import { Blessings } from "./sections/Blessings";
 import { Countdown } from "./sections/Countdown";
 import { Celebrate } from "./sections/Celebrate";
+import { LightLab } from "./components/LightLab";
 import { Share } from "./sections/Share";
 import { Footer } from "./sections/Footer";
 
@@ -56,6 +57,7 @@ export default function App() {
             <Blessings />
             <Countdown />
             <Celebrate />
+            <LightLab />
             <Share />
           </main>
 

@@ -9,6 +9,7 @@ const LINKS = [
   { id: "diyas", label: "Light a diya" },
   { id: "blessings", label: "Blessings" },
   { id: "countdown", label: "Countdown" },
+  { id: "lab", label: "Light lab" },
   { id: "share", label: "QR card" },
 ];
 

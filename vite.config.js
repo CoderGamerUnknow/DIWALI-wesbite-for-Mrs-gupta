@@ -30,8 +30,8 @@ export default defineConfig({
 
         return html
           .replaceAll("%SITE_URL%", siteUrl)
-          .replace("<!-- %CANONICAL% -->", canonical)
-          .replace("<!-- %OG_URL% -->", ogUrl);
+          .replace(/<!--\s*%CANONICAL%\s*-->/g, canonical)
+          .replace(/<!--\s*%OG_URL%\s*-->/g, ogUrl);
       },
     },
   ],
