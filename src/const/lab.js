@@ -8,7 +8,6 @@ export const LAB_CATEGORIES = ["Personalize", "Play", "Learn", "Create", "Extras
 export const LAB_FEATURES = [
   {
     id: "name-in-lights",
-    title: "Name in lights",
     blurb: "Type a name and watch it become the greeting.",
     category: "Personalize",
   },
@@ -553,5 +552,3 @@ export const MESSAGE_TONES = [
   },
 ];
 
-export const CALM_NOTE =
-  "Animations and transitions are switched off while this preference is active.";

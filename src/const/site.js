@@ -2,6 +2,8 @@
  * Everything you may want to personalise lives here.
  * Add your school name and it will appear in the letter, hero and footer.
  */
+export const diwaliDate = new Date("2026-11-08T18:30:00+05:30");
+
 export const site = {
   principal: "Respected Mrs. Gupta",
   principalShort: "Mrs. Gupta",
@@ -52,7 +54,4 @@ export const site = {
   ],
 };
 
-export const diwaliDate = new Date(site.diwaliISO);
 
-export const withSchool = (text) =>
-  site.school ? `${text} · ${site.school}` : text;
