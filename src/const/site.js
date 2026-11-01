@@ -50,6 +50,40 @@ export const site = {
       text: "May the light you have sown in your Life Skill Committee return to you doubled.",
     },
   ],
+
+  fiveDays: [
+    {
+      name: "Dhanteras",
+      hindi: "धनतेरस",
+      sub: "Day one",
+      text: "The festival opens with a clean house and one small new thing — often a clay diya or a brass pot — brought home as a promise of plenty.",
+    },
+    {
+      name: "Naraka Chaturdashi",
+      hindi: "नरक चतुर्दशी",
+      sub: "Choti Diwali",
+      text: "Lamps are lit before sunrise in some homes. The day remembers Narakasura's defeat: light arriving just in time, and a reason to wear something new.",
+    },
+    {
+      name: "Lakshmi Puja",
+      hindi: "लक्ष्मी पूजा",
+      sub: "The new moon",
+      text: "Rangoli at the threshold, lamps on every ledge, and a prayer that abundance finds its way inside. This is the night the whole festival is built around.",
+      main: true,
+    },
+    {
+      name: "Govardhan Puja",
+      hindi: "गोवर्धन पूजा",
+      sub: "Annakut",
+      text: "A mountain of food is offered in gratitude for the harvest, then shared with everyone nearby — because a full table is meant to be opened.",
+    },
+    {
+      name: "Bhai Dooj",
+      hindi: "भाई दूज",
+      sub: "The last day",
+      text: "Sisters mark their brothers with a tilak, sweets are exchanged, and the five days close the way they began: with family at the door.",
+    },
+  ],
 };
 
 /** The countdown target, kept in step with the editable date above. */

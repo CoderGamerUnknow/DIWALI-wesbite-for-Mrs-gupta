@@ -10,6 +10,7 @@ import { Hero } from "./sections/Hero";
 import { Wish } from "./sections/Wish";
 import { Diyas } from "./sections/Diyas";
 import { Blessings } from "./sections/Blessings";
+import { FiveDays } from "./sections/FiveDays";
 import { Countdown } from "./sections/Countdown";
 import { Celebrate } from "./sections/Celebrate";
 import { LightLab } from "./components/LightLab";
@@ -57,6 +58,7 @@ export default function App() {
             <Wish />
             <Diyas />
             <Blessings />
+            <FiveDays />
             <Countdown />
             <Celebrate />
             <LightLab />

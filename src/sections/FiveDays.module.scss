@@ -1,0 +1,232 @@
+.days {
+  position: relative;
+  background:
+    radial-gradient(48vw 40vw at 88% 12%, rgba(128, 61, 21, 0.16), transparent 68%),
+    radial-gradient(52vw 42vw at 8% 92%, rgba(86, 24, 66, 0.24), transparent 70%),
+    linear-gradient(180deg, #0b0414 0%, #14081b 52%, #0c0412 100%);
+}
+
+.glow {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  width: min(46rem, 90vw);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 201, 93, 0.1), transparent 64%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  align-items: start;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+.intro :global(.section-title) {
+  margin-top: 1.3rem;
+}
+
+.intro :global(.lead) {
+  max-width: 36ch;
+}
+
+.note {
+  margin-top: 1.6rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(244, 201, 93, 0.35);
+  color: var(--faint);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.note span {
+  margin-right: 0.45rem;
+  color: rgba(244, 201, 93, 0.65);
+}
+
+.list {
+  position: relative;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.list::before {
+  content: "";
+  position: absolute;
+  top: 1.6rem;
+  bottom: 2rem;
+  left: 2.55rem;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(244, 201, 93, 0.34),
+    rgba(244, 201, 93, 0.08) 78%,
+    transparent
+  );
+}
+
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5.1rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.markerDiya {
+  display: block;
+  width: 3.15rem;
+  filter: drop-shadow(0 0 12px rgba(255, 157, 59, 0.32));
+  transition:
+    transform 0.4s var(--ease-out),
+    filter 0.4s ease;
+}
+
+.markerNumber {
+  color: rgba(244, 201, 93, 0.5);
+  font-size: 0.54rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+}
+
+.body {
+  padding: 0.15rem 0 1.05rem;
+  border-bottom: 1px solid rgba(244, 201, 93, 0.12);
+}
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.8rem;
+}
+
+.heading h3 {
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.32rem);
+  letter-spacing: 0.01em;
+}
+
+.hindi {
+  color: var(--gold);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.badge {
+  padding: 0.22rem 0.55rem;
+  border: 1px solid rgba(244, 201, 93, 0.4);
+  border-radius: 999px;
+  color: var(--gold-bright);
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sub {
+  margin-top: 0.35rem;
+  color: rgba(255, 247, 232, 0.4);
+  font-size: 0.57rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.text {
+  max-width: 44ch;
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.row:hover .markerDiya {
+  transform: translateY(-2px) scale(1.04);
+  filter: drop-shadow(0 0 18px rgba(255, 157, 59, 0.48));
+}
+
+.main .markerDiya {
+  filter: drop-shadow(0 0 20px rgba(255, 157, 59, 0.52));
+}
+
+.main .body {
+  border-bottom-color: rgba(244, 201, 93, 0.3);
+}
+
+.main .heading h3 {
+  color: var(--gold-bright);
+}
+
+.footNote {
+  position: relative;
+  z-index: 2;
+  max-width: 52rem;
+  margin: clamp(2rem, 4vw, 3rem) auto 0;
+  color: var(--faint);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.footNote span {
+  margin-right: 0.5rem;
+  color: rgba(244, 201, 93, 0.6);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .intro :global(.lead) {
+    max-width: 52ch;
+  }
+
+  .note {
+    max-width: 44ch;
+  }
+}
+
+@media (max-width: 560px) {
+  .list::before {
+    left: 1.55rem;
+  }
+
+  .row {
+    grid-template-columns: 3.1rem minmax(0, 1fr);
+    gap: 0.85rem;
+  }
+
+  .markerDiya {
+    width: 2.2rem;
+  }
+
+  .heading {
+    gap: 0.25rem 0.55rem;
+  }
+
+  .badge {
+    font-size: 0.46rem;
+  }
+
+  .text {
+    font-size: 0.84rem;
+  }
+}

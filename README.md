@@ -3,8 +3,8 @@
 A handmade, animation-rich Diwali greeting site, built to be opened from a QR
 code. The experience includes a cinematic intro, a letter to the principal,
 five diyas that light up with a chime, scroll-revealed blessings, a live
-countdown, interactive fireworks, a downloadable QR greeting card, and an
-original Diwali melody.
+countdown, the five days of Diwali, interactive fireworks, a downloadable QR
+greeting card, and an original Diwali melody.
 
 All artwork (diyas, rangoli, stars, fireworks) is drawn in CSS, SVG and canvas —
 there are no third-party images, and no copyrighted assets.
@@ -29,6 +29,7 @@ Everything editable lives in [`src/const/site.js`](src/const/site.js):
 - `diwaliISO` / `diwaliLabel` — the countdown target and displayed date.
 - `letter` — the greeting, paragraphs, closing and signature.
 - `blessings` — the six Hindi + English blessing cards.
+- `fiveDays` — the five-day Diwali timeline shown before the countdown.
 
 No code changes are needed to personalise the greeting.
 
