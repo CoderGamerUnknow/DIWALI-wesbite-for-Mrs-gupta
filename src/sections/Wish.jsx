@@ -72,7 +72,7 @@ export function Wish() {
           </p>
 
           <div className={styles.meta}>
-            <span>Written by your students</span>
+            <span>Written by your Life Skill Committee</span>
             <span className={styles.metaDot} aria-hidden="true">
               ✦
             </span>

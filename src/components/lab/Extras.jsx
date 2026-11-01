@@ -36,7 +36,7 @@ export function Calendar() {
     `DTSTART;VALUE=DATE:${startCode}`,
     `DTEND;VALUE=DATE:${endCode}`,
     `SUMMARY:Diwali ${site.year}`,
-    `DESCRIPTION:${site.principalShort} — a wish from your students. Light a diya and keep the glow.`,
+    `DESCRIPTION:${site.principalShort} — a wish from your Life Skill Committee. Light a diya and keep the glow.`,
     "BEGIN:VALARM",
     "TRIGGER:-P1D",
     "ACTION:DISPLAY",

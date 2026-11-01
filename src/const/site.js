@@ -7,7 +7,7 @@ export const diwaliDate = new Date("2026-11-08T18:30:00+05:30");
 export const site = {
   principal: "Respected Mrs. Gupta",
   principalShort: "Mrs. Gupta",
-  from: "Your students",
+  from: "Your Life Skill Committee",
   school: "", // e.g. "Sunrise Public School" — leave empty to hide
 
   diwaliISO: "2026-11-08T18:30:00+05:30",
@@ -17,13 +17,13 @@ export const site = {
   letter: {
     greeting: "Respected Mrs. Gupta,",
     paragraphs: [
-      "On this festival of lights, we wanted to give you something that would not be folded away in a drawer. So we made you a little corner of the internet — every diya on it lit by your students.",
+      "On this festival of lights, we wanted to give you something that would not be folded away in a drawer. So we made you a little corner of the internet — every diya on it lit by your Life Skill Committee.",
       "Every day, you light paths for us. You notice the quiet student, you make room for the second chance, and you keep the school's heart steady even on the days the timetable refuses to behave. That kind of light is easy to get used to — and far too rarely thanked.",
       "This Diwali, we hope some of that light comes home to you. May your house be full of laughter, your table full of sweets, and your year ahead full of the good news you have quietly earned.",
       "May Maa Lakshmi bless your doorstep, Maa Saraswati bless your words, and may the lamps you have lit in all of us never, ever go out.",
     ],
     closing: "With gratitude, respect and a little extra light,",
-    signature: "Your students",
+    signature: "Your Life Skill Committee",
   },
 
   blessings: [
@@ -49,7 +49,7 @@ export const site = {
     },
     {
       hindi: "जो उजाला आपने बोया, वह दुगुना होकर लौटे।",
-      text: "May the light you have sown in your students return to you doubled.",
+      text: "May the light you have sown in your Life Skill Committee return to you doubled.",
     },
   ],
 };
