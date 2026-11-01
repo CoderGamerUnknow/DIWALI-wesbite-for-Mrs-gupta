@@ -260,27 +260,6 @@
   animation: scrollDrop 2.2s ease-in-out infinite;
 }
 
-.principalPicWrap {
-  position: absolute;
-  top: 50%;
-  z-index: 1;
-  transform: translateY(-50%);
-  img {
-    width: 22rem;
-    height: 22rem;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid rgba(244, 201, 93, 0.4);
-    box-shadow: 0 0 40px rgba(244, 201, 93, 0.15), 0 0 80px rgba(244, 201, 93, 0.08);
-    display: block;
-  }
-}
-
-.principalPicWrapLeft {
-  left: clamp(1.5rem, 7vw, 8rem);
-  transform: translateY(-50%);
-}
-
 .fade {
   position: absolute;
   right: 0;
