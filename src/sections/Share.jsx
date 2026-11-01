@@ -545,7 +545,7 @@ export function Share() {
 
       ctx.fillStyle = "#ffe6a3";
       ctx.font = '700 34px "Cinzel Decorative", Georgia, serif';
-      ctx.fillText("Your Students", 540, 1398);
+      ctx.fillText("Your Life Skill Committee", 540, 1398);
 
       drawSpacedText(
         ctx,
