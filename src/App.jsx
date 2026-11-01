@@ -4,6 +4,7 @@ import { SmoothScroll } from "./components/SmoothScroll";
 import { IntroLoader } from "./components/IntroLoader";
 import { CursorGlow } from "./components/CursorGlow";
 import { Nav } from "./components/Nav";
+import { MusicToggle } from "./components/MusicToggle";
 import { ScrollTopDiya } from "./components/ScrollTopDiya";
 import { Hero } from "./sections/Hero";
 import { Wish } from "./sections/Wish";
@@ -49,6 +50,7 @@ export default function App() {
 
           <CursorGlow />
           <Nav />
+          <MusicToggle />
 
           <main>
             <Hero />

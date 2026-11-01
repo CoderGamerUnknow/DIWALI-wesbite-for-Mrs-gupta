@@ -157,6 +157,37 @@
   box-shadow: 0 0 14px rgba(244, 201, 93, 0.65);
 }
 
+.song {
+  position: absolute;
+  bottom: clamp(1rem, 4vh, 1.8rem);
+  left: clamp(1rem, 4vw, 2.5rem);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.62rem 1.05rem;
+  border: 1px solid rgba(244, 201, 93, 0.55);
+  border-radius: 999px;
+  color: #241005;
+  background: linear-gradient(115deg, #caa14c, #ffe3a0 49%, #d79b3d);
+  box-shadow: 0 10px 35px -14px rgba(244, 201, 93, 0.75);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 0.3s var(--ease-out), filter 0.3s ease;
+}
+
+.song:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+}
+
+.song span {
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
 .skip {
   position: absolute;
   right: clamp(1rem, 4vw, 2.5rem);
@@ -180,6 +211,14 @@
 @media (max-width: 560px) {
   .progressWrap {
     width: 76vw;
+  }
+
+  .song {
+    top: 1rem;
+    left: 1rem;
+    bottom: auto;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.6rem;
   }
 
   .skip {

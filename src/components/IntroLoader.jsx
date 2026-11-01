@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Diya } from "./Diya";
+import { pauseSong, playSong } from "../lib/song";
 import styles from "./IntroLoader.module.scss";
 
 const TITLE = "HAPPY DIWALI";
@@ -143,10 +144,25 @@ export function IntroLoader({ onDone }) {
 
       <button
         type="button"
-        className={styles.skip}
-        onClick={() => finishRef.current()}
+        className={styles.song}
+        onClick={() => {
+          playSong();
+          finishRef.current();
+        }}
       >
-        Skip intro
+        <span aria-hidden="true">♪</span>
+        Enter with the song
+      </button>
+
+      <button
+        type="button"
+        className={styles.skip}
+        onClick={() => {
+          pauseSong();
+          finishRef.current();
+        }}
+      >
+        Enter quietly
       </button>
     </div>
   );

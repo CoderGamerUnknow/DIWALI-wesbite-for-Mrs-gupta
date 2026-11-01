@@ -3,7 +3,8 @@
 A handmade, animation-rich Diwali greeting site, built to be opened from a QR
 code. The experience includes a cinematic intro, a letter to the principal,
 five diyas that light up with a chime, scroll-revealed blessings, a live
-countdown, interactive fireworks, and a downloadable QR greeting card.
+countdown, interactive fireworks, a downloadable QR greeting card, and an
+original Diwali melody.
 
 All artwork (diyas, rangoli, stars, fireworks) is drawn in CSS, SVG and canvas —
 there are no third-party images, and no copyrighted assets.
@@ -45,6 +46,17 @@ The share section (`/` → "QR card" or the **Share the light** button in the na
 
 > While previewing on `localhost`, the QR points at your local address. Open the
 > deployed site before downloading the card you will give to the principal.
+
+## Music
+
+The site opens with an original Diwali melody — no recording, no audio file.
+It is synthesized in `src/lib/song.js` with the Web Audio API: plucked notes, a
+soft drone, bells and a light pulse.
+
+Browsers block sound until the visitor interacts, so the intro offers **Enter
+with the song**, and a floating play/pause control sits at the bottom-left. If
+the intro is skipped, the song starts on the first tap, click or keypress.
+Pausing it is remembered on that device.
 
 ## Link previews
 
