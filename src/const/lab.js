@@ -8,6 +8,7 @@ export const LAB_CATEGORIES = ["Personalize", "Play", "Learn", "Create", "Extras
 export const LAB_FEATURES = [
   {
     id: "name-in-lights",
+    title: "Your name in lights",
     blurb: "Type a name and watch it become the greeting.",
     category: "Personalize",
   },

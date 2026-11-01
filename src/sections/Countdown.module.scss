@@ -32,6 +32,12 @@
   gap: clamp(2.5rem, 6vw, 5rem);
 }
 
+.copy {
+  position: relative;
+  z-index: 2;
+  max-width: 34rem;
+}
+
 .lead {
   max-width: 42ch;
 }

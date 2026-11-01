@@ -375,8 +375,12 @@ export function Share() {
       document.body.appendChild(helper);
       helper.select();
       try {
-        document.execCommand("copy");
-        setFeedback("Link copied. Share the light.");
+        const copied = document.execCommand("copy");
+        setFeedback(
+          copied
+            ? "Link copied. Share the light."
+            : "Select the link above to copy it."
+        );
       } catch {
         setFeedback("Select the link above to copy it.");
       }
@@ -545,7 +549,7 @@ export function Share() {
 
       ctx.fillStyle = "#ffe6a3";
       ctx.font = '700 34px "Cinzel Decorative", Georgia, serif';
-      ctx.fillText("Your Life Skill Committee", 540, 1398);
+      ctx.fillText(site.letter.signature, 540, 1398);
 
       drawSpacedText(
         ctx,
