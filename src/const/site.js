@@ -7,6 +7,7 @@ export const diwaliDate = new Date("2026-11-08T18:30:00+05:30");
 export const site = {
   principal: "Respected Mrs. Gupta",
   principalShort: "Mrs. Gupta",
+  principalPicture: "/principal-picture.png", // URL to principal's picture (PNG with transparent background or JPG)
   from: "Your Life Skill Committee",
   school: "", // e.g. "Sunrise Public School" — leave empty to hide
 

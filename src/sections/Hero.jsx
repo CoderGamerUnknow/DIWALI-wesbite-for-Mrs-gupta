@@ -123,6 +123,14 @@ export function Hero() {
         </div>
       </div>
 
+      <div className={`${styles.principalPicWrap} ${styles.principalPicWrapLeft}`} aria-hidden="true">
+        <img src={`${site.principalPicture}`} alt="" />
+      </div>
+
+      <div className={`${styles.principalPicWrap}`} aria-hidden="true">
+        <img src={`${site.principalPicture}`} alt="" />
+      </div>
+
       <div className={styles.embers} aria-hidden="true">
         {EMBERS.map((ember, index) => (
           <span
