@@ -640,7 +640,7 @@ export function Share() {
       <div className={styles.glow} aria-hidden="true" />
       <div className={`container ${styles.grid}`}>
         <div className={styles.copy} data-share-copy>
-          <p className="eyebrow">One last thing</p>
+          <p className="eyebrow">A card to keep</p>
           <h2 className="section-title">
             Take the light
             <br />

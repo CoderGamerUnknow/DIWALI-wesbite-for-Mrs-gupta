@@ -14,6 +14,7 @@ import { FiveDays } from "./sections/FiveDays";
 import { Countdown } from "./sections/Countdown";
 import { Celebrate } from "./sections/Celebrate";
 import { Share } from "./sections/Share";
+import { ThankYou } from "./sections/ThankYou";
 import { Footer } from "./sections/Footer";
 
 // The Light Lab is the largest part of the page and sits below the fold, so
@@ -70,6 +71,7 @@ export default function App() {
               <LightLab />
             </Suspense>
             <Share />
+            <ThankYou />
           </main>
 
           <Footer />
