@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { LAB_CATEGORIES, LAB_FEATURES as FIRST_FEATURES } from "../const/lab";
 import { LAB_FEATURES_2 } from "../const/lab2";
 import { useSmoothScroll } from "../context/ScrollContext";
@@ -12,6 +13,12 @@ const TOTAL = LAB_FEATURES.length;
 export function LightLab() {
   const { scrollTo } = useSmoothScroll();
   const stageRef = useRef(null);
+
+  // The lab is code-split. Its arrival changes the height of every section
+  // below it, so scroll positions created before it loaded are stale.
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, []);
   const [category, setCategory] = useState("All");
   const [activeId, setActiveId] = useState(null);
 

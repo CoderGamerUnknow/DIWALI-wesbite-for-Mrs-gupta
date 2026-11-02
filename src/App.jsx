@@ -67,7 +67,16 @@ export default function App() {
             <FiveDays />
             <Countdown />
             <Celebrate />
-            <Suspense fallback={null}>
+            <Suspense
+              fallback={
+                <section
+                  id="lab"
+                  className="section"
+                  aria-busy="true"
+                  aria-label="Loading the Light Lab"
+                />
+              }
+            >
               <LightLab />
             </Suspense>
             <Share />
