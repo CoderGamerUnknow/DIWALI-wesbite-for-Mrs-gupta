@@ -244,6 +244,18 @@ export const LAB_FEATURES_2 = [
     blurb: "Make a QR code from any text or link.",
     category: "Extras",
   },
+  {
+    id: "word-search",
+    title: "Festival word search",
+    blurb: "Find six Diwali words hidden across the grid.",
+    category: "Play",
+  },
+  {
+    id: "diwali-bingo",
+    title: "Diwali bingo",
+    blurb: "A four-by-four card of small festive joys.",
+    category: "Create",
+  },
 ];
 
 export const MOODS = [

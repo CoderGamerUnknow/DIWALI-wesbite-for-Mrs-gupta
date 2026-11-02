@@ -18,6 +18,7 @@ import {
   Sparkler,
   TapSprint,
 } from "./Play";
+import { DiwaliBingo, WordSearch } from "./Festival";
 import {
   EcoChecklist,
   FactCarousel,
@@ -180,6 +181,8 @@ const FEATURE_COMPONENTS = {
   "emoji-rangoli": EmojiRangoli,
   "email-wish": EmailWish,
   "custom-qr": CustomQR,
+  "word-search": WordSearch,
+  "diwali-bingo": DiwaliBingo,
 };
 
 export function FeatureBody({ id }) {
