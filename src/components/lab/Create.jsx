@@ -317,7 +317,7 @@ export function CoupletMaker() {
 }
 
 export function CardMaker() {
-  const [name, setName] = useStoredState("name", "");
+  const [name, setName] = useStoredState("card-name", "");
   const [message, setMessage] = useState(
     "A little light, a lot of love. Wishing you a year as warm as this lamp."
   );

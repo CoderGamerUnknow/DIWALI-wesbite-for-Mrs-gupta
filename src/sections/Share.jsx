@@ -12,6 +12,17 @@ const getPageUrl = () => {
   return `${origin}${cleanPath}`;
 };
 
+const isLocalHost = (host) =>
+  host === "localhost" ||
+  host === "0.0.0.0" ||
+  host === "::1" ||
+  host === "[::1]" ||
+  /^127\./.test(host) ||
+  /^10\./.test(host) ||
+  /^192\.168\./.test(host) ||
+  /^172\.(1[6-9]|2\d|3[01])\./.test(host) ||
+  host.endsWith(".local");
+
 const drawSpacedText = (ctx, text, centerX, y, spacing, font, color) => {
   ctx.save();
   ctx.font = font;
@@ -324,9 +335,7 @@ export function Share() {
 
   useEffect(() => {
     setPageUrl(getPageUrl());
-    setIsLocal(
-      /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname)
-    );
+    setIsLocal(isLocalHost(window.location.hostname));
     setCanShare(typeof navigator.share === "function");
   }, []);
 

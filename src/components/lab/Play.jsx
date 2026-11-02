@@ -22,6 +22,7 @@ export function TapSprint() {
   const [taps, setTaps] = useState(0);
   const [timeLeft, setTimeLeft] = useState(DURATION);
   const [best, setBest] = useStoredState("tap-best", 0);
+  const [newBest, setNewBest] = useState(false);
 
   useEffect(() => {
     if (phase !== "playing") return undefined;
@@ -35,12 +36,14 @@ export function TapSprint() {
   useEffect(() => {
     if (phase !== "playing" || timeLeft > 0) return;
     setPhase("done");
+    setNewBest(taps > best);
     setBest((value) => Math.max(value, taps));
-  }, [phase, timeLeft, taps, setBest]);
+  }, [best, phase, timeLeft, taps, setBest]);
 
   const start = () => {
     setTaps(0);
     setTimeLeft(DURATION);
+    setNewBest(false);
     setPhase("playing");
   };
 
@@ -84,7 +87,7 @@ export function TapSprint() {
           <p className={styles.overlayMessage} aria-live="polite">
             {taps === 0
               ? "The flame stayed patient."
-              : `${taps} taps. ${taps >= best ? "A new best." : "The flame is impressed."}`}
+              : `${taps} taps. ${newBest ? "A new best." : "The flame is impressed."}`}
           </p>
         )}
       </div>
@@ -265,7 +268,14 @@ export function BlessingWheel() {
     setSpinning(true);
     setResult(null);
     // Rotate so the pointer sits on the centre of the winning 45° segment.
-    setAngle((value) => value + 360 * 5 + (360 - (index * 45 + 22.5)));
+    // Normalise the existing rotation first: the offset must be relative to the
+    // current angle, not added to every turn ever spun.
+    setAngle((value) => {
+      const target = (360 - (index * 45 + 22.5)) % 360;
+      const current = ((value % 360) + 360) % 360;
+      const delta = (target - current + 360) % 360;
+      return value + 360 * 5 + (delta === 0 ? 360 : delta);
+    });
     timerRef.current = window.setTimeout(() => {
       setSpinning(false);
       setResult(WHEEL[index]);
@@ -542,6 +552,7 @@ export function MarigoldCatch() {
   const [timeLeft, setTimeLeft] = useState(CATCH_DURATION);
   const [flowers, setFlowers] = useState([]);
   const [best, setBest] = useStoredState("catch-best", 0);
+  const [newBest, setNewBest] = useState(false);
 
   useEffect(() => {
     if (phase !== "playing") return undefined;
@@ -577,13 +588,15 @@ export function MarigoldCatch() {
     if (phase !== "playing" || timeLeft > 0) return;
     setPhase("done");
     setFlowers([]);
+    setNewBest(score > best);
     setBest((value) => Math.max(value, score));
-  }, [phase, timeLeft, score, setBest]);
+  }, [best, phase, timeLeft, score, setBest]);
 
   const start = () => {
     setScore(0);
     setTimeLeft(CATCH_DURATION);
     setFlowers([]);
+    setNewBest(false);
     setPhase("playing");
   };
 
@@ -634,7 +647,7 @@ export function MarigoldCatch() {
           <p className={styles.overlayMessage}>
             {phase === "idle"
               ? "Catch the falling marigolds before they reach the ground."
-              : `${score} caught. ${score >= best ? "A new best." : "The garden applauds."}`}
+              : `${score} caught. ${newBest ? "A new best." : "The garden applauds."}`}
           </p>
         )}
       </div>

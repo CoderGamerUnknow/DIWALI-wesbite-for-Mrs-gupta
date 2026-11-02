@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { IntroLoader } from "./components/IntroLoader";
@@ -13,9 +13,14 @@ import { Blessings } from "./sections/Blessings";
 import { FiveDays } from "./sections/FiveDays";
 import { Countdown } from "./sections/Countdown";
 import { Celebrate } from "./sections/Celebrate";
-import { LightLab } from "./components/LightLab";
 import { Share } from "./sections/Share";
 import { Footer } from "./sections/Footer";
+
+// The Light Lab is the largest part of the page and sits below the fold, so
+// load it as its own chunk instead of in the initial bundle.
+const LightLab = lazy(() =>
+  import("./components/LightLab").then((module) => ({ default: module.LightLab }))
+);
 
 export default function App() {
   const [ready, setReady] = useState(false);
@@ -61,7 +66,9 @@ export default function App() {
             <FiveDays />
             <Countdown />
             <Celebrate />
-            <LightLab />
+            <Suspense fallback={null}>
+              <LightLab />
+            </Suspense>
             <Share />
           </main>
 

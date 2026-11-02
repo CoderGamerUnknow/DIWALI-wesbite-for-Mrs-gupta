@@ -405,7 +405,27 @@ export function TimeCapsule() {
   const [capsule, setCapsule] = useStoredState("capsule", null);
   const [message, setMessage] = useState("");
   const now = useNow(30_000);
-  const opensAt = diwaliDate.getTime();
+
+  // A letter sealed before this year's Diwali opens on it. A letter sealed
+  // afterwards waits for the next one, instead of opening as it is written.
+  const rawSealedAt = capsule?.sealedAt;
+  const sealedAt = Number.isFinite(rawSealedAt) ? rawSealedAt : now;
+  const opensOn = new Date(diwaliDate);
+  const yearsAhead = Math.max(
+    0,
+    new Date(sealedAt).getFullYear() - opensOn.getFullYear()
+  );
+  opensOn.setFullYear(opensOn.getFullYear() + yearsAhead);
+  if (opensOn.getTime() <= sealedAt) {
+    opensOn.setFullYear(opensOn.getFullYear() + 1);
+  }
+
+  const opensAt = opensOn.getTime();
+  const openLabel = opensOn.toLocaleDateString(undefined, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
   const isOpen = now >= opensAt;
   const daysLeft = Math.max(0, Math.ceil((opensAt - now) / 86_400_000));
 
@@ -422,7 +442,7 @@ export function TimeCapsule() {
       <div className={styles.feature}>
         <p className={styles.bodyCopy}>
           Write something to your future self. It stays on this device, sealed
-          until {site.diwaliLabel}.
+          until {openLabel}.
         </p>
         <form className={styles.stack} onSubmit={seal}>
           <label className={styles.field}>
@@ -465,7 +485,7 @@ export function TimeCapsule() {
           <p className={styles.capsuleMessage}>{capsule.message}</p>
         ) : (
           <p className={styles.capsuleLocked}>
-            It will open on {site.diwaliLabel}. The wait is part of the wish.
+            It will open on {openLabel}. The wait is part of the wish.
           </p>
         )}
         <span className={styles.capsuleDate}>

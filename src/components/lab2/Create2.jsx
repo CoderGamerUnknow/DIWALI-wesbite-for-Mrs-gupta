@@ -512,7 +512,7 @@ const buildBookmark = (name, quote, theme) => `<svg xmlns="http://www.w3.org/200
 </svg>`;
 
 export function Bookmark() {
-  const [name, setName] = useStoredState("name", "");
+  const [name, setName] = useStoredState("bookmark-name", "");
   const [quote, setQuote] = useState("May every page you turn bring a little more light.");
   const [themeIndex, setThemeIndex] = useState(0);
   const theme = BOOKMARK_THEMES[themeIndex];

@@ -34,6 +34,7 @@ export const Fireworks = forwardRef(function Fireworks({ className = "" }, ref) 
     let lastAuto = 0;
     let nextAuto = 900;
     let particles = [];
+    let volleyTimers = [];
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -102,10 +103,13 @@ export const Fireworks = forwardRef(function Fireworks({ className = "" }, ref) 
     const scene = {
       burst: (x, y, { count = 44, scale = 1 } = {}) => explode(x, y, count, scale),
       volley: () => {
+        volleyTimers.forEach((timer) => window.clearTimeout(timer));
+        volleyTimers = [];
+
         const x = width / 2 || 300;
         const y = height * 0.36 || 160;
         explode(x, y, 64, 1.25);
-        [180, 360, 540].forEach((delay, index) =>
+        volleyTimers = [180, 360, 540].map((delay, index) =>
           window.setTimeout(
             () =>
               explode(
@@ -197,6 +201,8 @@ export const Fireworks = forwardRef(function Fireworks({ className = "" }, ref) 
 
     return () => {
       stop();
+      volleyTimers.forEach((timer) => window.clearTimeout(timer));
+      volleyTimers = [];
       observer.disconnect();
       resizeObserver.disconnect();
       window.removeEventListener("diwali:celebrate", onCelebrate);

@@ -132,7 +132,10 @@ export function LightLab() {
                 className={`${styles.categoryButton} ${
                   category === name ? styles.categoryActive : ""
                 }`}
-                onClick={() => setCategory(name)}
+                onClick={() => {
+                  setCategory(name);
+                  setActiveId(null);
+                }}
                 aria-pressed={category === name}
               >
                 {name}

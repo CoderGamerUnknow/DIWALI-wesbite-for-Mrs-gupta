@@ -84,7 +84,7 @@ export function Calendar() {
 
 export function CopyWish() {
   const [toneId, setToneId] = useState("whatsapp");
-  const [name, setName] = useStoredState("name", "");
+  const [name, setName] = useStoredState("copywish-signature", "");
   const [pageUrl] = useState(() =>
     typeof window === "undefined" ? "" : window.location.href.split("#")[0]
   );

@@ -163,6 +163,7 @@ export function FireflyJar() {
   const [timeLeft, setTimeLeft] = useState(FLY_DURATION);
   const [flies, setFlies] = useState(makeFlies);
   const [best, setBest] = useStoredState("firefly-best", 0);
+  const [newBest, setNewBest] = useState(false);
 
   useEffect(() => {
     if (phase !== "playing") return undefined;
@@ -188,13 +189,15 @@ export function FireflyJar() {
   useEffect(() => {
     if (phase !== "playing" || timeLeft > 0) return;
     setPhase("done");
+    setNewBest(score > best);
     setBest((value) => Math.max(value, score));
-  }, [phase, timeLeft, score, setBest]);
+  }, [best, phase, timeLeft, score, setBest]);
 
   const start = () => {
     setScore(0);
     setTimeLeft(FLY_DURATION);
     setFlies(makeFlies());
+    setNewBest(false);
     setPhase("playing");
   };
 
@@ -244,7 +247,7 @@ export function FireflyJar() {
           <p className={styles.overlayMessage}>
             {phase === "idle"
               ? "Fifteen seconds. Fill the jar with little lights."
-              : `${score} caught. ${score >= best ? "A new best." : "The jar is glowing."}`}
+              : `${score} caught. ${newBest ? "A new best." : "The jar is glowing."}`}
           </p>
         )}
       </div>
@@ -567,6 +570,7 @@ export function OddDiya() {
   const [odd, setOdd] = useState(0);
   const [message, setMessage] = useState("");
   const [best, setBest] = useStoredState("odd-best", 0);
+  const [newBest, setNewBest] = useState(false);
 
   useEffect(() => {
     if (phase !== "playing") return undefined;
@@ -580,8 +584,9 @@ export function OddDiya() {
   useEffect(() => {
     if (phase !== "playing" || timeLeft > 0) return;
     setPhase("done");
+    setNewBest(score > best);
     setBest((value) => Math.max(value, score));
-  }, [phase, timeLeft, score, setBest]);
+  }, [best, phase, timeLeft, score, setBest]);
 
   const newOdd = (exclude = -1) => {
     let next = Math.floor(Math.random() * ODD_COUNT);
@@ -594,6 +599,7 @@ export function OddDiya() {
   const start = () => {
     setScore(0);
     setTimeLeft(ODD_SECONDS);
+    setNewBest(false);
     setPhase("playing");
     setMessage("");
     newOdd();
@@ -645,7 +651,7 @@ export function OddDiya() {
           <p className={styles.overlayMessage}>
             {phase === "idle"
               ? "One flame is not like the others. Twenty seconds."
-              : `${score} found. ${score >= best ? "A new best." : "A good eye."}`}
+              : `${score} found. ${newBest ? "A new best." : "A good eye."}`}
           </p>
         )}
       </div>

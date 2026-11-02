@@ -72,6 +72,10 @@ npm run og
 Run that after changing the recipient or the Diwali date. `public/apple-touch-icon.png`
 is regenerated at the same time.
 
+The page `<title>`, description and social meta tags in `index.html` are filled
+from `src/const/site.js` during `vite build`, so they follow a rename without
+further edits.
+
 `vite.config.js` rewrites the Open Graph and canonical URLs to absolute ones at
 build time, using the deployment address that Vercel and Netlify provide. On any
 other host, set `VITE_SITE_URL=https://your-domain.com` before building.
