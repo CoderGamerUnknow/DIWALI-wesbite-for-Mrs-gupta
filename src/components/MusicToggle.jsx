@@ -11,7 +11,7 @@ import styles from "./MusicToggle.module.scss";
 export function MusicToggle() {
   const playing = useSyncExternalStore(
     subscribeSong,
-    isSongPlaying,
+    () => isSongPlaying(),
     () => false
   );
 

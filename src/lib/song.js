@@ -8,6 +8,9 @@
  */
 
 const STORAGE_KEY = "diwali-song-enabled";
+const YT_MUSIC_PLAYLIST = "PLiDtQq1Fv2yG3pX2qN6qGzB1qB8qK7u8zT";// A playlist of Diwali/folk/inspirational tracks
+// If empty or invalid, falls back to Web Audio synthesis.
+const YT_ENABLED = !!YT_MUSIC_PLAYLIST && typeof window !== "undefined";
 const BPM = 92;
 const STEP_SECONDS = 60 / BPM / 2; // eighth notes
 const LOOKAHEAD = 0.55;
@@ -52,6 +55,9 @@ let step = 0;
 let playing = false;
 let enabled = readEnabled();
 const listeners = new Set();
+let ytPlayer = null;
+let ytIdIndex = 0;
+const ytPlaylist = YT_MUSIC_PLAYLIST ? YT_MUSIC_PLAYLIST.split("\n").filter((s) => s.trim()) : [];
 
 function readEnabled() {
   if (typeof window === "undefined") return true;
@@ -278,6 +284,14 @@ export function playSong() {
   enabled = true;
   persistEnabled();
 
+  // If YouTube Music is configured, use the IFrame player.
+  if (YT_ENABLED && ytPlaylist.length > 0) {
+    loadYTPlayer();
+    ytPlayer.playVideoAt(ytIdIndex);
+    ytIdIndex = (ytIdIndex + 1) % ytPlaylist.length;
+    return;
+  }
+
   const audio = ensureContext();
   if (!audio) return;
 
@@ -316,6 +330,10 @@ export function pauseSong() {
     master.gain.exponentialRampToValueAtTime(0.0001, now + 0.6);
   }
 
+  if (ytPlayer) {
+    ytPlayer.stopVideo();
+  }
+
   emit();
 }
 
@@ -335,4 +353,56 @@ export function isSongPlaying() {
 export function subscribeSong(listener) {
   listeners.add(listener);
   return () => listeners.delete(listener);
+}
+
+/** Load the YouTube IFrame API and create a player. */
+function loadYTPlayer() {
+  if (typeof window === "undefined") return;
+  if (window.YT) {
+    // API already loaded.
+    return;
+  }
+
+  // Load the YouTube IFrame API script.
+  const tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  const firstScript = document.getElementsByTagName("script")[0];
+  firstScript.parentNode.insertBefore(tag, firstScript);
+
+  window.onYouTubeIframeAPIReady = () => {
+    // Create the player once the API is ready.
+    ytPlayer = new window.YT.Player("yt-music-player", {
+      width: 0,
+      height: 0,
+      playerVars: {
+        autoplay: 0,
+        rel: 0,
+        showsuggested: 0,
+        modestbranding: 1,
+        branding: 0,
+        color: "white",
+      },
+      events: {
+        onReady: onYTPlayerReady,
+        onStateChange: onYTStateChange,
+      },
+    });
+  };
+}
+
+function onYTPlayerReady() {
+  // Player is ready; we start paused so the first interaction unlocks audio.
+  ytPlayer.pauseVideo();
+}
+
+function onYTStateChange(event) {
+  if (event.data === window.YT.PlayerState.PLAYING) {
+    emit();
+  }
+  if (event.data === window.YT.PlayerState.ENDED) {
+    // Move to next track in the playlist.
+    ytIdIndex = (ytIdIndex + 1) % ytPlaylist.length;
+    ytPlayer.loadVideoById(ytPlaylist[ytIdIndex]);
+    ytPlayer.playVideo();
+  }
 }
