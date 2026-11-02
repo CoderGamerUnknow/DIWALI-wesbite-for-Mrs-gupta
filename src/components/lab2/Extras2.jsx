@@ -122,7 +122,7 @@ export function GiftTags() {
           className={styles.input}
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
-          placeholder="Mrs. Gupta, Ananya, Rohan"
+          placeholder={`${site.principalShort}, Ananya, Rohan`}
           maxLength={100}
         />
       </label>
@@ -248,7 +248,9 @@ export function TabTitle() {
 
       <div className={styles.factCard}>
         <span className={styles.factIndex}>The tab now reads</span>
-        <h4 className={styles.factTitle}>{title.trim() || "Happy Diwali, Mrs. Gupta — A Wish From Your Students"}</h4>
+        <h4 className={styles.factTitle}>
+          {title.trim() || `Happy Diwali, ${site.principalShort} — A Wish From Your Students`}
+        </h4>
         <p className={styles.factText}>A tiny piece of the wish, living up there beside the other tabs.</p>
       </div>
 

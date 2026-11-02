@@ -49,7 +49,7 @@ export function LightLab() {
           <div>
             <p className="eyebrow">The Light Lab</p>
             <h2 className="section-title">
-              Eighty little lights,
+              {TOTAL} little lights,
               <br />
               <em>one for every mood.</em>
             </h2>
@@ -100,7 +100,7 @@ export function LightLab() {
               </span>
               <div className={styles.emptyCopy}>
                 <span className={styles.stageIndex}>The whole shelf</span>
-                <h3>Eighty small ways to play.</h3>
+                <h3>{TOTAL} small ways to play.</h3>
                 <p>
                   Pick any card below. The light you choose opens right here, so
                   you never lose your place on the page.

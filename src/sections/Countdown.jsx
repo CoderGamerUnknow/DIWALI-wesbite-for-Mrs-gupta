@@ -16,6 +16,10 @@ const getRemaining = () => {
   };
 };
 
+const diwaliWeekday = diwaliDate.toLocaleDateString("en-IN", {
+  weekday: "long",
+});
+
 export function Countdown() {
   const sectionRef = useRef(null);
   const [remaining, setRemaining] = useState(getRemaining);
@@ -87,7 +91,7 @@ export function Countdown() {
           <p className={`lead ${styles.lead}`}>
             {remaining.done
               ? `Diwali is here. May this year bring you every quiet joy you have wished for, ${site.principalShort}.`
-              : "Diwali 2026 arrives on Sunday, 8 November. Until then, consider this our little countdown — one bright thought at a time."}
+              : `Diwali arrives on ${diwaliWeekday}, ${site.diwaliLabel}. Until then, consider this our little countdown — one bright thought at a time.`}
           </p>
 
           <div className={styles.dateChip}>

@@ -401,7 +401,7 @@ export function Share() {
     try {
       await navigator.share({
         title: `Happy Diwali, ${site.principalShort} — A Wish From Your Students`,
-        text: "A handmade Diwali wish from your Life Skill Committee.",
+        text: `A handmade Diwali wish from ${site.from}.`,
         url: pageUrl,
       });
     } catch (error) {
@@ -632,7 +632,7 @@ export function Share() {
   };
 
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(
-    `A Diwali wish for ${site.principalShort}, from your Life Skill Committee.\n${pageUrl}`
+    `A Diwali wish for ${site.principalShort}, from ${site.from}.\n${pageUrl}`
   )}`;
 
   return (
@@ -737,7 +737,7 @@ export function Share() {
             <span className={styles.cardTopDiya} aria-hidden="true">
               <Diya lit />
             </span>
-            <p className={styles.cardKicker}>With love, from your Life Skill Committee</p>
+            <p className={styles.cardKicker}>With love, from {site.from}</p>
             <h3 className={styles.cardTitle}>
               Happy
               <br />

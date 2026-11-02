@@ -33,7 +33,7 @@ export function NameInLights() {
           className={styles.input}
           value={name}
           onChange={(event) => setName(event.target.value)}
-          placeholder="e.g. Mrs. Gupta"
+          placeholder={`e.g. ${site.principalShort}`}
           maxLength={28}
         />
       </label>
