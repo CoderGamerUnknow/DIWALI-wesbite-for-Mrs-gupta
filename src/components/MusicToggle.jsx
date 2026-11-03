@@ -2,6 +2,7 @@ import { useEffect, useSyncExternalStore } from "react";
 import {
   isSongPlaying,
   playSong,
+  resumeSong,
   songEnabled,
   subscribeSong,
   toggleSong,
@@ -19,26 +20,31 @@ export function MusicToggle() {
     if (!songEnabled()) return undefined;
 
     // Browsers hold audio until the visitor interacts. Try immediately, then
-    // start on the first tap, click or keypress unless the song was paused.
+    // resume on the first tap, click or keypress unless the song was paused.
+    // The listeners are removed after that first interaction so scrolling or
+    // clicking elsewhere can never interrupt or restart the song.
     playSong();
 
+    const detach = () => {
+      window.removeEventListener("pointerdown", unlock);
+      window.removeEventListener("keydown", unlock);
+    };
+
     const unlock = (event) => {
+      detach();
       if (
         event.target instanceof Element &&
         event.target.closest("[data-music-toggle]")
       ) {
         return;
       }
-      if (songEnabled()) playSong();
+      if (songEnabled()) resumeSong();
     };
 
     window.addEventListener("pointerdown", unlock);
     window.addEventListener("keydown", unlock);
 
-    return () => {
-      window.removeEventListener("pointerdown", unlock);
-      window.removeEventListener("keydown", unlock);
-    };
+    return detach;
   }, []);
 
   return (
